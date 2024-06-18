@@ -1,0 +1,36 @@
+import socios.*
+import viajes.*
+
+describe "Test de clase de Roque"{
+	const viajeDePlaya1 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 1000)
+	const viajeDePlaya2 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 2000)
+
+	const roque = new Socio(actividades = [viajeDePlaya1,viajeDePlaya2], maximoActividades = 2,edad = 21,idiomas = "Espaniol")
+	
+	test "Roque debe ser adorador del sol "{
+
+		assert.that(roque.esAdoradorDelSol())
+	}
+
+	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
+
+		assert.equals([viajeDePlaya2],roque.actividadesEsforzadas())
+
+	}
+}
+
+describe "Test de clase ana"{
+	const viajeDePlaya1 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 1000)
+	const viajeDePlaya2 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 2000)
+	const claseDeGimnasia = new Gimnasia(idiomas = #{"Espaniol"})
+	const ana = new Socio(actividades = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia], maximoActividades = 3,edad = 30,idiomas = "Ingles"
+	)
+	
+	test "Ana no es adoradora del Sol"{
+		assert.notThat(ana.esAdoradorDelSol())
+	}
+	
+	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
+		assert.equals([viajeDePlaya2,claseDeGimnasia],ana.actividadesEsforzadas())
+	}
+}

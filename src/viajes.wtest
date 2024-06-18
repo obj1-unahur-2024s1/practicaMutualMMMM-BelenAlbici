@@ -1,0 +1,114 @@
+import viajes.*
+
+describe " Test de Viajes De Playa"{
+	
+	const viajeDePlaya1 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"}, largoPlaya=500)
+	
+	test "La cantidad de dias del viaje es 1" {
+	assert.equals(1, viajeDePlaya1.diasActividad())
+	}
+	
+	test "Este viaje no implica Esfuerzo"{
+		assert.notThat(viajeDePlaya1.implicaEsfuerzo())
+	}
+	
+	test "Este viaje es para broncearse "{
+		assert.that(viajeDePlaya1.paraBroncearse())
+	}
+	
+	test"Este viaje debe ser interesante"{
+		assert.that(viajeDePlaya1.esInteresante())
+	}
+}
+
+describe "Test de Excursion a Ciudad"{
+	
+	const excursionCiudad1 = new ExcursionCiudad(idiomas = #{"Espaniol","Aleman","Ingles"},atracciones=4)
+	
+	test"la cantidad de dias Actividad es 2"{
+		assert.equals(2, excursionCiudad1.diasActividad())
+	}
+	
+	test "Este viaje no implica Esfuerzo"{
+		assert.notThat(excursionCiudad1.implicaEsfuerzo())
+	}
+	
+	test "Este viaje no es para broncearse "{
+		assert.notThat(excursionCiudad1.paraBroncearse())
+	}
+	
+	test"Este viaje debe ser interesante"{
+		assert.that(excursionCiudad1.esInteresante())
+	}
+}
+
+describe "Test de Excursion a Ciudad Tropical"{
+	
+	const excursionCiudadTropical1 = new ExcursionCiudadTropical(idiomas = #{"Espaniol","Aleman","Ingles"},atracciones=6)
+	
+	test"la cantidad de dias Actividad es 4"{
+		assert.equals(4, excursionCiudadTropical1.diasActividad())
+	}
+	
+	test "Este viaje implica Esfuerzo"{
+		assert.that(excursionCiudadTropical1.implicaEsfuerzo())
+	}
+	
+	test "Este viaje es para broncearse "{
+		assert.that(excursionCiudadTropical1.paraBroncearse())
+	}
+	
+	test"Este viaje debe ser interesante"{
+		assert.that(excursionCiudadTropical1.esInteresante())
+	}
+}
+
+describe " Test de Salida Trekking"{
+	
+	const salidaTrekking1 = new SalidaTrekking(idiomas = #{"Espaniol","Aleman","Ingles"},kmSendero=100,diasDeSol=100)
+	
+	test"la cantidad de dias Actividad es 2"{
+		assert.equals(2, salidaTrekking1.diasActividad())
+	}
+	
+	test "Este viaje implica Esfuerzo"{
+		assert.that(salidaTrekking1.implicaEsfuerzo())
+	}
+	
+	test "Este viaje no es para broncearse "{
+		assert.notThat(salidaTrekking1.paraBroncearse())
+	}
+	
+	test"Este viaje no debe ser interesante"{
+		assert.notThat(salidaTrekking1.esInteresante())
+	}
+}
+
+describe "Test de Gimnasia"{
+	
+	const claseGimnasia1 = new Gimnasia (idiomas = #{"Espaniol"})
+	
+	test"la cantidad de dias Actividad es 1"{
+		assert.equals(1, claseGimnasia1.diasActividad())
+	}
+	
+	test "Esta clase implica Esfuerzo"{
+		assert.that(claseGimnasia1.implicaEsfuerzo())
+	}
+	
+	test "Esta clase no es para broncearse "{
+		assert.notThat(claseGimnasia1.paraBroncearse())
+	}
+	
+	test"Esta clase no debe ser interesante"{
+		assert.notThat(claseGimnasia1.esInteresante())
+	}
+}
+
+
+
+
+
+
+
+
