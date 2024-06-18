@@ -5,7 +5,7 @@ describe "Test de clase de Roque"{
 	const viajeDePlaya1 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 1000)
 	const viajeDePlaya2 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 2000)
 
-	const roque = new Socio(actividades = [viajeDePlaya1,viajeDePlaya2], maximoActividades = 2,edad = 21,idiomas = "Espaniol")
+	const roque = new SocioRelajado (actividades = [viajeDePlaya1,viajeDePlaya2], maximoActividades = 2 , edad = 21, idiomas = #{"Espaniol"})
 	
 	test "Roque debe ser adorador del sol "{
 
@@ -15,15 +15,18 @@ describe "Test de clase de Roque"{
 	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
 
 		assert.equals([viajeDePlaya2],roque.actividadesEsforzadas())
-
 	}
+	
+	test " Test le Atrae la playa"{
+		assert.that(roque.leAtrae(viajeDePlaya1))
+	}
+	
 }
-
 describe "Test de clase ana"{
 	const viajeDePlaya1 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 1000)
 	const viajeDePlaya2 = new ViajesDePlaya(idiomas = #{"Espaniol","Aleman","Ingles"},largoPlaya = 2000)
 	const claseDeGimnasia = new Gimnasia(idiomas = #{"Espaniol"})
-	const ana = new Socio(actividades = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia], maximoActividades = 3,edad = 30,idiomas = "Ingles"
+	const ana = new SocioCoherente (actividades = [viajeDePlaya1,viajeDePlaya2,claseDeGimnasia], maximoActividades = 3,edad = 30,idiomas = "Ingles"
 	)
 	
 	test "Ana no es adoradora del Sol"{
@@ -33,4 +36,28 @@ describe "Test de clase ana"{
 	test "Las actividades que implican esfuerzo debe ser la de viaje de playa 2"{
 		assert.equals([viajeDePlaya2,claseDeGimnasia],ana.actividadesEsforzadas())
 	}
+	
+	test " Ana le atrae la gimnasia "{
+		assert.that(ana.leAtrae(claseDeGimnasia))
+	}
 }
+
+describe "test de clase belen"{
+	
+	const salidaTrekking1 = new SalidaTrekking (idiomas = #{"Espaniol","Aleman","Ingles"},kmSendero=200, diasDeSol= 200)
+	const salidaTrekking2 = new SalidaTrekking (idiomas = #{"Espaniol","Aleman","Ingles"},kmSendero=400, diasDeSol= 200)
+	const belen = new SocioTranquilo (actividades= [salidaTrekking1,salidaTrekking2], maximoActividades=2, edad= 24, idiomas="Espaniol")
+	const claseDeGimnasia = new Gimnasia(idiomas = #{"Espaniol"})
+	
+	test" Belen le atrae las salidas de trekking"{
+		
+		assert.that(belen.leAtrae(salidaTrekking1))
+	}
+	
+	test " clase de Gimnasia es Recomendada Para Belen"{
+		
+		assert.that(claseDeGimnasia.esRecomendadaPara(belen))
+	}
+}
+ 
+

@@ -19,6 +19,8 @@ describe " Test de Viajes De Playa"{
 	test"Este viaje debe ser interesante"{
 		assert.that(viajeDePlaya1.esInteresante())
 	}
+	
+	
 }
 
 describe "Test de Excursion a Ciudad"{
